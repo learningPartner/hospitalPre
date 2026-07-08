@@ -1,0 +1,132 @@
+<div class="hospital-layout " [ngClass]="isSidebarExpanded? 'sidebar-expanded':'sidebar-collapsed'">
+  <aside class="sidebar ">
+    <div class="sidebar-brand">
+      <span class="brand-icon">H+</span>
+      <span class="brand-text">Hospital</span>
+    </div>
+
+    <nav class="sidebar-menu" aria-label="Main navigation">
+      <a href="#" class="menu-link active" >
+        <span class="menu-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 10.8 12 3l9 7.8v9.7a.5.5 0 0 1-.5.5h-5.2v-6.4H8.7V21H3.5a.5.5 0 0 1-.5-.5v-9.7Z" />
+          </svg>
+        </span>
+        <span class="menu-text">Home</span>
+      </a>
+
+      <a href="#" class="menu-link">
+        <span class="menu-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 13a8 8 0 0 1 16 0" />
+            <path d="m12 13 4-5" />
+            <path d="M4 17h16" />
+            <path d="M7 13h.01M17 13h.01" />
+          </svg>
+        </span>
+        <span class="menu-text">Dashboard</span>
+      </a>
+
+      <a href="#" class="menu-link">
+        <span class="menu-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 4v16M16 4v16M4 8h16M4 16h16" />
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+          </svg>
+        </span>
+        <span class="menu-text">Staff</span>
+      </a>
+
+      <a href="#" class="menu-link">
+        <span class="menu-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" />
+            <rect x="4" y="4" width="16" height="16" rx="4" />
+          </svg>
+        </span>
+        <span class="menu-text">Doctors</span>
+      </a>
+
+      <a href="#" class="menu-link">
+        <span class="menu-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="5" width="16" height="15" rx="2" />
+            <path d="M8 3v4M16 3v4M4 10h16" />
+          </svg>
+        </span>
+        <span class="menu-text">Appointments</span>
+      </a>
+
+      <a href="#" class="menu-link">
+        <span class="menu-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 4h8l3 3v13H5V4h3Z" />
+            <path d="M15 4v4h4M8 13h8M8 17h5" />
+          </svg>
+        </span>
+        <span class="menu-text">Prescriptions</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <span class="user-avatar">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+          <path d="M4 21a8 8 0 0 1 16 0" />
+        </svg>
+      </span>
+      <div class="user-details">
+        <strong>{{loggedUserData.roleName}}</strong>
+        <small>{{loggedUserData.fullName}}</small>
+      </div>
+    </div>
+
+    <button type="button" class="logout-button" (click)="onLogOff()">
+      <span class="menu-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10 17l5-5-5-5" />
+          <path d="M15 12H3" />
+          <path d="M21 19V5a2 2 0 0 0-2-2h-6" />
+          <path d="M13 21h6a2 2 0 0 0 2-2" />
+        </svg>
+      </span>
+      <span class="menu-text">Log off</span>
+    </button>
+  </aside>
+
+  <div class="main-area">
+    <header class="top-nav">
+      <button type="button" (click)="toggleSidebar()" class="toggle-button" aria-label="Toggle sidebar">
+        <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </svg>
+      </button>
+
+      <div class="top-title">
+        <h1>Hospital Prescription System</h1>
+        <span>Clinical workspace</span>
+      </div>
+
+      <div class="top-actions">
+        <button type="button" class="nav-icon-button" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+            <path d="M10 21h4" />
+          </svg>
+        </button>
+        <span class="top-avatar">A</span>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <section class="content-placeholder">
+        <span class="section-kicker">Overview</span>
+        <h2>Welcome to your dashboard</h2>
+        <p>Select a module from the sidebar to manage hospital operations.</p>
+      </section>
+    </main>
+  </div>
+</div>

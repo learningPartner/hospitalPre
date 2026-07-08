@@ -1,0 +1,98 @@
+<main class="login-page">
+  <section class="login-shell container-fluid">
+    <div class="row min-vh-100">
+      <div class="col-lg-7 login-brand-panel d-none d-lg-flex">
+        <div class="brand-content">
+          <span class="brand-kicker">Hospital Prescription System</span>
+          <h1>Manage visits, prescriptions, and appointments in one calm workspace.</h1>
+          <p>
+            A focused system for staff, doctors, appointment booking, and visit-wise
+            prescription records.
+          </p>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <span class="feature-icon">01</span>
+              <strong>Staff Management</strong>
+              <small>Keep roles and access clear.</small>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">02</span>
+              <strong>Doctor Registration</strong>
+              <small>Maintain provider profiles.</small>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">03</span>
+              <strong>Prescription Visits</strong>
+              <small>Record care notes per visit.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5 login-form-panel">
+        <div class="login-card">
+          <div class="mobile-brand d-lg-none">
+            <span class="brand-mark">H+</span>
+            <span>Hospital Prescription System</span>
+          </div>
+
+          <div class="login-header">
+            <span class="brand-mark d-none d-lg-inline-flex">H+</span>
+            <h2>Welcome back</h2>
+            <p>Sign in to continue to your hospital dashboard.</p>
+          </div>
+
+          <form class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                [(ngModel)]="loginObj.email"
+                name="email"
+                placeholder="doctor@hospital.com"
+                required
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                #emailField="ngModel"
+                (blur)="emailField.control.markAsTouched()"
+              />
+              <div class="text-danger small mt-1" *ngIf="(emailField.invalid && emailField.touched)  || formSubmitted">
+                <div *ngIf="emailField.errors?.['required']">Email is required.</div>
+                <div *ngIf="emailField.errors?.['pattern']">Enter a valid email address.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                [(ngModel)]="loginObj.password"
+                name="password"
+                placeholder="Enter password"
+                required
+                #passwordField="ngModel"
+                (blur)="passwordField.control.markAsTouched()"
+              />
+              <div class="text-danger small mt-1" *ngIf="(passwordField.invalid && passwordField.touched) || formSubmitted">
+                <div *ngIf="passwordField.errors?.['required']">Password is required.</div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary login-button w-100"  >
+              Sign in
+            </button>
+          </form>
+
+          <div class="support-note">
+            <span>Need access?</span>
+            <a href="#">Contact administrator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,241 @@
+.login-page {
+  min-height: 100vh;
+  background: #f9fafb;
+  color: #111827;
+}
+
+.login-shell {
+  padding: 0;
+}
+
+.login-brand-panel {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(29, 78, 216, 0.96), rgba(16, 185, 129, 0.9)),
+    url("https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1400&q=80")
+      center/cover;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 64px;
+}
+
+.brand-content {
+  max-width: 680px;
+}
+
+.brand-kicker {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+  padding: 8px 14px;
+}
+
+.brand-content h1 {
+  font-size: clamp(2.5rem, 4.5vw, 4.7rem);
+  font-weight: 800;
+  line-height: 1.02;
+  margin: 0 0 24px;
+}
+
+.brand-content p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 560px;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  padding: 18px;
+}
+
+.feature-icon {
+  color: #bbf7d0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+.feature-item strong {
+  font-size: 0.96rem;
+  margin-bottom: 8px;
+}
+
+.feature-item small {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+}
+
+.login-form-panel {
+  align-items: center;
+  background: #f9fafb;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px 20px;
+}
+
+.login-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(17, 24, 39, 0.08);
+  max-width: 460px;
+  padding: 40px;
+  width: 100%;
+}
+
+.mobile-brand {
+  align-items: center;
+  color: #111827;
+  display: flex;
+  font-weight: 800;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.brand-mark {
+  align-items: center;
+  background: #1d4ed8;
+  border-radius: 8px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: 800;
+  height: 44px;
+  justify-content: center;
+  margin-bottom: 24px;
+  width: 44px;
+}
+
+.mobile-brand .brand-mark {
+  height: 36px;
+  margin-bottom: 0;
+  width: 36px;
+}
+
+.login-header h2 {
+  color: #111827;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.login-header p {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.form-label {
+  color: #111827;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #111827;
+  min-height: 48px;
+  padding: 11px 14px;
+}
+
+.form-control:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 0.22rem rgba(29, 78, 216, 0.14);
+}
+
+.form-options {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0 24px;
+  gap: 16px;
+}
+
+.form-check-label,
+.form-options a,
+.support-note {
+  font-size: 0.9rem;
+}
+
+.form-check-input {
+  border-color: #9ca3af;
+}
+
+.form-check-input:checked {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.form-options a,
+.support-note a {
+  color: #1d4ed8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.form-options a:hover,
+.support-note a:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  background: #1d4ed8;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 800;
+  min-height: 50px;
+}
+
+.login-button:hover,
+.login-button:focus {
+  background: #1e40af;
+}
+
+.support-note {
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+  margin-top: 28px;
+  padding-top: 24px;
+  text-align: center;
+}
+
+.support-note span {
+  margin-right: 6px;
+}
+
+@media (max-width: 575.98px) {
+  .login-form-panel {
+    align-items: stretch;
+    padding: 18px;
+  }
+
+  .login-card {
+    box-shadow: none;
+    padding: 28px 22px;
+  }
+
+  .form-options {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
