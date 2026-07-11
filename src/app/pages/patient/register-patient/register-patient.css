@@ -1,0 +1,143 @@
+.register-wrapper {
+  min-height: 100vh;
+  padding: 24px;
+  background: linear-gradient(135deg, #f2f8ff 0%, #e6f1ff 100%);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.banner {
+  background: linear-gradient(90deg, #0f4c81 0%, #1f7ed4 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 24px 28px;
+  box-shadow: 0 10px 25px rgba(15, 76, 129, 0.2);
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.brand-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.brand-block h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.brand-block p {
+  margin: 2px 0 0;
+  opacity: 0.9;
+}
+
+.banner-text h2 {
+  margin: 0 0 6px;
+  font-size: 30px;
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-card h3 {
+  margin: 0 0 6px;
+  color: #0f4c81;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  color: #667085;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-weight: 600;
+  color: #344054;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #1f7ed4;
+}
+
+button {
+  background: #1f7ed4;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button:hover {
+  background: #1762b0;
+}
+
+@media (max-width: 600px) {
+  .register-wrapper {
+    padding: 16px;
+  }
+
+  .banner,
+  .form-card {
+    padding: 20px;
+  }
+
+  .banner-text h2 {
+    font-size: 24px;
+  }
+}

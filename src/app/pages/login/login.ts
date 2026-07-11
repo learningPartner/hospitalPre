@@ -3,6 +3,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../../core/services/user-service';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { LoginModel } from '../../core/models/classes/User.Model';
+import { GlobalConstant } from '../../core/constant/GlobalConstant';
 
 @Component({
   selector: 'app-login',
@@ -11,33 +13,28 @@ import { NgIf } from '@angular/common';
   styleUrl: './login.css',
 })
 export class Login {
-  loginObj: any = {
-    projectName: '',
-    email: '',
-    password: '',
-  };
+  loginObj: LoginModel = new LoginModel();
 
   userSrv = inject(UserService);
   router = inject(Router);
   formSubmitted: boolean = false;
 
-
   login(form: NgForm) {
     this.formSubmitted = true;
     debugger;
-    if(!form.invalid) {
+    if (!form.invalid) {
       this.userSrv.onLogin(this.loginObj).subscribe({
-      next:(res:any)=>{
-         debugger;
-        sessionStorage.setItem('hospitalUser',JSON.stringify(res));
-        this.router.navigateByUrl('/admin/users')
-      },
-      error:(error: any)=>{
-         debugger;
-        alert("APi Error " + error.error)
-      }
-    })
+        next: (res: any) => {
+          debugger;
+          sessionStorage.setItem(GlobalConstant.LOGGED_USER_SEESION_KEY, JSON.stringify(res));
+          this.userSrv.assignLoogedUser();
+          this.router.navigateByUrl('/admin/users');
+        },
+        error: (error: any) => {
+          debugger;
+          alert('APi Error ' + error.error);
+        },
+      });
     }
-    
   }
 }

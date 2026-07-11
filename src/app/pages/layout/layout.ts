@@ -1,24 +1,38 @@
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router'; 
+import { LoginUserModel } from '../../core/models/interfaces/User.Model';
+import { UserService } from '../../core/services/user-service';
 
 @Component({
   selector: 'app-layout',
-  imports: [NgClass],
+  imports: [NgClass, RouterOutlet, RouterLink],
   templateUrl: './layout.html',
   styleUrl: './layout.css',
 })
 export class Layout {
 
   isSidebarExpanded: boolean = true;
-  loggedUserData: any;
+  // loggedUserData: LoginUserModel = {
+  //   email:'',
+  //   fullName:'',
+  //   id: 0,
+  //   isActive:false,
+  //   mobileNo:'',
+  //   roleId:0,
+  //   roleName:''
+  // };
+  userSrv = inject(UserService)
+  loggedUserData!: LoginUserModel;
   router=  inject(Router);
 
   constructor(){
-    const loggedData = sessionStorage.getItem("hospitalUser");
-    if(loggedData) {
-      this.loggedUserData = JSON.parse(loggedData)
-    }
+    // const loggedData = sessionStorage.getItem("hospitalUser");
+    // if(loggedData) {
+    //   this.loggedUserData = JSON.parse(loggedData)
+    // }
+    debugger;
+    this.loggedUserData= this.userSrv.loggedUserData;
   }
 
   onLogOff() {
