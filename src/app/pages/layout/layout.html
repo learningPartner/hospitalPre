@@ -6,16 +6,19 @@
     </div>
 
     <nav class="sidebar-menu" aria-label="Main navigation">
-      <a href="#" class="menu-link active" >
+      @for (item of menuItemList; track $index) {
+          <a [routerLink]="item.route" class="menu-link active">
         <span class="menu-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M3 10.8 12 3l9 7.8v9.7a.5.5 0 0 1-.5.5h-5.2v-6.4H8.7V21H3.5a.5.5 0 0 1-.5-.5v-9.7Z" />
           </svg>
         </span>
-        <span class="menu-text">Home</span>
+        <span class="menu-text">{{item.title}}</span>
       </a>
+      }
+    
 
-      <a href="#" class="menu-link">
+      <!-- <a href="#" class="menu-link">
         <span class="menu-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4 13a8 8 0 0 1 16 0" />
@@ -36,7 +39,7 @@
         </span>
         <span class="menu-text">Staff</span>
       </a>
-        <a routerLink="/admin/medicine-Master" class="menu-link">
+      <a routerLink="/admin/medicine-Master" class="menu-link">
         <span class="menu-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M8 4v16M16 4v16M4 8h16M4 16h16" />
@@ -46,14 +49,14 @@
         <span class="menu-text">Medicine</span>
       </a>
 
-      <a href="#" class="menu-link">
+      <a routerLink="visit" class="menu-link">
         <span class="menu-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 5v14M5 12h14" />
             <rect x="4" y="4" width="16" height="16" rx="4" />
           </svg>
         </span>
-        <span class="menu-text">Doctors</span>
+        <span class="menu-text">Visit</span>
       </a>
 
       <a href="#" class="menu-link">
@@ -75,7 +78,7 @@
         </span>
         <span class="menu-text">Prescriptions</span>
       </a>
-       <a routerLink="patient-list" class="menu-link">
+      <a routerLink="patient-list" class="menu-link">
         <span class="menu-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M8 4h8l3 3v13H5V4h3Z" />
@@ -83,7 +86,7 @@
           </svg>
         </span>
         <span class="menu-text">Patients</span>
-      </a>
+      </a> -->
     </nav>
 
     <div class="sidebar-user">

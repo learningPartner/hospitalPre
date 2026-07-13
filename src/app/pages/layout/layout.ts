@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router'; 
 import { LoginUserModel } from '../../core/models/interfaces/User.Model';
 import { UserService } from '../../core/services/user-service';
+import { MenuConstant } from '../../core/constant/Menu.Constant';
 
 @Component({
   selector: 'app-layout',
@@ -25,6 +26,8 @@ export class Layout {
   userSrv = inject(UserService)
   loggedUserData!: LoginUserModel;
   router=  inject(Router);
+
+  menuItemList =  MenuConstant.menuItems;
 
   constructor(){
     // const loggedData = sessionStorage.getItem("hospitalUser");

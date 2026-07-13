@@ -54,12 +54,26 @@
           <form>
             <div class="mb-3">
               <label class="form-label">Patient ID</label>
-              <input type="number" class="form-control" placeholder="Enter Patient ID">
+              <select class="form-select">
+                <option value="">Select Patient</option>
+                <!-- @for (item of patientList(); track $index) {
+                  <option [value]="item.patientId"> {{item.fullName}} -{{item.phone}}</option>
+                } -->
+
+                @for (item of patientList$ | async; track $index) {
+                  <option [value]="item.patientId"> {{item.fullName}} -{{item.phone}}</option>
+                }
+              </select>
             </div>
 
             <div class="mb-3">
               <label class="form-label">Doctor ID</label>
-              <input type="number" class="form-control" placeholder="Enter Doctor ID">
+               <select class="form-select">
+              <option value="">Select Doctor</option>
+                 @for (item of doctorList$ | async; track $index) {
+                  <option [value]="item.id"> {{item.fullName}} -{{item.mobileNo}}</option>
+                }
+                </select>
             </div>
 
             <div class="mb-3">
