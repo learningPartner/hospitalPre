@@ -2,6 +2,7 @@ import { Component, ElementRef, inject, OnInit, signal, Signal, ViewChild, viewC
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../core/services/user-service';
 import { LoginUserModel } from '../../core/models/interfaces/User.Model';
+import { FormConstant } from '../../core/constant/Form.Constant';
 
 @Component({
   selector: 'app-users',
@@ -19,6 +20,8 @@ export class Users implements OnInit {
 
   userList: WritableSignal<LoginUserModel[]> = signal<LoginUserModel[]>([])
   loggedUser: LoginUserModel =  this.userSrv.loggedUserData;
+
+  formData =  FormConstant.STAFF_FORM_DATA;
 
   constructor(private formBuilder: FormBuilder) {
     this.initializeForm(); 
@@ -38,6 +41,7 @@ export class Users implements OnInit {
       isActive: [false],
     });
   }
+  
   toggleFormVisibility() {
     this.isFormOpen = !this.isFormOpen;
   }

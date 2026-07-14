@@ -4,21 +4,31 @@ export const MenuConstant = {
     menuItems: [
         { 
             title: 'Medicine',
-            icon:'fa fa-user',
+            icon:'fa-address-book-o',
             route: 'medicine-Master',
-            roles: [GlobalConstant.ROLE.DOCTOR,GlobalConstant.ROLE.RECEIPNEST]
+            roles: [GlobalConstant.ROLE.DOCTOR,GlobalConstant.ROLE.RECEIPNEST],
+            toolTipText: 'Medicine MAster PAge'
         }, 
         {
             title: 'users',
-            icon:'fa fa-user',
+            icon:'fa-home',
             route: 'users',
-            roles: [GlobalConstant.ROLE.DOCTOR,GlobalConstant.ROLE.RECEIPNEST]
+            roles: [GlobalConstant.ROLE.DOCTOR,GlobalConstant.ROLE.RECEIPNEST],
+             toolTipText: 'User MAster PAge'
         } , 
         {
             title: 'precriptions',
-            icon:'fa fa-user',
+            icon:'fa-phone',
             route: 'users',
-            roles: [GlobalConstant.ROLE.DOCTOR]
+            roles: [GlobalConstant.ROLE.DOCTOR],
+             toolTipText: 'Precription'
+        }, 
+        {
+            title: 'Visits',
+            icon:'fa-phone',
+            route: 'visit',
+            roles: [GlobalConstant.ROLE.DOCTOR],
+             toolTipText: 'Precription'
         }
     ]
 }

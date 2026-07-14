@@ -3,7 +3,8 @@ export const GlobalConstant = {
         LOGIN:'login',
         CREATE_USER:'staff',
         FILTER_USER:'staff?roleName=',
-        PATIENT:'patients'
+        PATIENT:'patients',
+        VISIT:'visits'
     },
     REG_EXP: {
         EAMIL:'/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
@@ -24,5 +25,6 @@ export const GlobalConstant = {
         DOCTOR:'Doctor',
         PATIENT:'Patient',
         RECEIPNEST:'RECEIPNEST'
-    }
+    },
+    ROLE_LIST: ['Doctor','Patient','RECEIPNEST']
 }

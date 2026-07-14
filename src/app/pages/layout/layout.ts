@@ -7,7 +7,7 @@ import { MenuConstant } from '../../core/constant/Menu.Constant';
 
 @Component({
   selector: 'app-layout',
-  imports: [NgClass, RouterOutlet, RouterLink],
+  imports: [NgClass, RouterOutlet, RouterLink, ],
   templateUrl: './layout.html',
   styleUrl: './layout.css',
 })
@@ -29,7 +29,12 @@ export class Layout {
 
   menuItemList =  MenuConstant.menuItems;
 
+  cityList: string  [] = ["Pune","Panji","Nagput","Mumbai","Solapur","Thane"];
+
+
   constructor(){
+
+    const data = this.cityList.includes("Pune"); 
     // const loggedData = sessionStorage.getItem("hospitalUser");
     // if(loggedData) {
     //   this.loggedUserData = JSON.parse(loggedData)

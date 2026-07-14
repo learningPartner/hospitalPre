@@ -91,15 +91,28 @@
 
                     <form [formGroup]="userForm">
 
-                        <div class="row">
+                        <div class="row"> 
+                            @for (item of formData; track $index) {
+                                <div class="col-md-6 mb-3">
+                                <label class="form-label">{{item.label}}</label>
+                                @if (item.inputType == 'text' || item.inputType == 'checkbox' || item.inputType =='date' || item.inputType == 'password') {
+                                     
+                                     <input [type]="item.inputType" [class]="item.className" [placeholder]="item.placeHolder"
+                                    [formControlName]="item.fieldName">
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Full Name</label>
-                                <input type="text" class="form-control" placeholder="Enter Full Name"
-                                    formControlName="fullName">
-                            </div>
+                                } @else if (item.inputType == 'select') { 
+                                    <select [class]="item.className" [formControlName]="item.fieldName">
+                                        <option value=""> {{item.placeHolder}}</option>
+                                        @for (item of item.options; track $index) {
+                                            <option [value]="item"> {{item}}</option>
+                                        }
+                                    </select>
+                                } 
+                            </div> 
+                            }
+                            
 
-                            <div class="col-md-6 mb-3">
+                            <!-- <div class="col-md-6 mb-3">
                                 <label class="form-label">Email</label>
                                 <input type="email" class="form-control" placeholder="Enter Email"
                                     formControlName="email">
@@ -124,9 +137,9 @@
                                     <option>Admin</option>
                                     <option>User</option>
                                 </select>
-                            </div>
+                            </div> -->
 
-                            <div class="col-md-6 mb-3">
+                            <!-- <div class="col-md-6 mb-3">
                                 <label class="form-label d-block">Status</label>
 
                                 <div class="form-check form-switch mt-2">
@@ -135,7 +148,7 @@
                                         Active
                                     </label>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 

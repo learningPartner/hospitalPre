@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-8">
+    <div [class]="isFormOpen ? 'col-8' : 'col-12'">
       <div class="card border-primary">
         <div class="card-header bg-primary text-dark">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Visit List</h5>
-            <button class="btn btn-dark btn-sm">Add Visit</button>
+            <button class="btn btn-dark btn-sm" (click)="toggleFormVisibility()">Add Visit</button>
           </div>
         </div>
         <div class="card-body">
@@ -23,18 +23,24 @@
                 </tr>
               </thead>
               <tbody>
+                @for (item of visitList(); track $index) {
                 <tr>
-                  <td>1</td>
-                  <td>101</td>
-                  <td>201</td>
-                  <td>2026-07-11</td>
-                  <td>Fever, Cough</td>
-                  <td>Viral Infection</td>
+                  <td>{{$index + 1}}</td>
+                  <td>{{item.patientId}}</td>
+                  <td>{{item.doctorId}}</td>
+                  <td>{{item.visitDate | date:'short'}}</td>
+                  <td>{{item.symptoms}}</td>
+                  <td>{{item.diagnosis}}</td>
                   <td>
-                    <button class="btn btn-sm btn-success">Edit</button>
-                    <button class="btn btn-sm btn-danger mx-2">Delete</button>
+                    <button class="btn btn-sm btn-success" (click)="onEditVisit(item)">Edit</button>
+                    <button class="btn btn-sm btn-danger mx-2" (click)="onDeleteVisit(item)">Delete</button>
                   </td>
                 </tr>
+                } @empty {
+                <tr>
+                  <td colspan="7" class="text-center">No visits found</td>
+                </tr>
+                }
               </tbody>
             </table>
           </div>
@@ -42,62 +48,77 @@
       </div>
     </div>
 
+    @if (isFormOpen) {
     <div class="col-4">
       <div class="card border-primary">
         <div class="card-header bg-primary text-dark">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Visit Details</h5>
-            <button class="btn btn-dark btn-sm">Close</button>
+            <button class="btn btn-dark btn-sm" (click)="toggleFormVisibility()">Close</button>
           </div>
         </div>
         <div class="card-body">
-          <form>
+          <form [formGroup]="visitForm">
             <div class="mb-3">
               <label class="form-label">Patient ID</label>
-              <select class="form-select">
-                <option value="">Select Patient</option>
-                <!-- @for (item of patientList(); track $index) {
-                  <option [value]="item.patientId"> {{item.fullName}} -{{item.phone}}</option>
-                } -->
-
+              <select class="form-select" formControlName="patientId">
+                <option [value]="0">Select Patient</option>
                 @for (item of patientList$ | async; track $index) {
                   <option [value]="item.patientId"> {{item.fullName}} -{{item.phone}}</option>
                 }
               </select>
+              @if (getControlError('patientId')) {
+              <small class="text-danger">Patient is required</small>
+              }
             </div>
 
             <div class="mb-3">
               <label class="form-label">Doctor ID</label>
-               <select class="form-select">
-              <option value="">Select Doctor</option>
+               <select class="form-select" formControlName="doctorId">
+              <option [value]="0">Select Doctor</option>
                  @for (item of doctorList$ | async; track $index) {
                   <option [value]="item.id"> {{item.fullName}} -{{item.mobileNo}}</option>
                 }
                 </select>
+                @if (getControlError('doctorId')) {
+                <small class="text-danger">Doctor is required</small>
+                }
             </div>
 
             <div class="mb-3">
               <label class="form-label">Visit Date</label>
-              <input type="datetime-local" class="form-control">
+              <input type="datetime-local" class="form-control" formControlName="visitDate">
+              @if (getControlError('visitDate')) {
+              <small class="text-danger">Visit date is required</small>
+              }
             </div>
 
             <div class="mb-3">
               <label class="form-label">Symptoms</label>
-              <textarea class="form-control" rows="3" placeholder="Enter symptoms"></textarea>
+              <textarea class="form-control" rows="3" placeholder="Enter symptoms" formControlName="symptoms"></textarea>
+              @if (getControlError('symptoms')) {
+              <small class="text-danger">Symptoms is required minimum 3 characters</small>
+              }
             </div>
 
             <div class="mb-3">
               <label class="form-label">Diagnosis</label>
-              <textarea class="form-control" rows="3" placeholder="Enter diagnosis"></textarea>
+              <textarea class="form-control" rows="3" placeholder="Enter diagnosis" formControlName="diagnosis"></textarea>
+              @if (getControlError('diagnosis')) {
+              <small class="text-danger">Diagnosis is required minimum 3 characters</small>
+              }
             </div>
 
             <div class="d-flex justify-content-end gap-2">
-              <button type="reset" class="btn btn-secondary">Reset</button>
-              <button type="button" class="btn btn-warning">Save Visit</button>
+              <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+              <button type="button" class="btn btn-warning" (click)="onSaveVisit()">
+                {{selectedVisitId === 0 ? 'Save Visit' : 'Update Visit'}}
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
+    }
   </div>
 </div>
