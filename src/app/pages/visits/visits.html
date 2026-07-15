@@ -5,7 +5,7 @@
         <div class="card-header bg-primary text-dark">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Visit List</h5>
-            <button class="btn btn-dark btn-sm" (click)="toggleFormVisibility()">Add Visit</button>
+            <button class="btn btn-dark btn-sm"  appHideShowBtn (click)="toggleFormVisibility()">Add Visit</button>
           </div>
         </div>
         <div class="card-body">
@@ -14,8 +14,8 @@
               <thead class="table-light">
                 <tr>
                   <th>Sr No</th>
-                  <th>Patient ID</th>
-                  <th>Doctor ID</th>
+                  <th>Patient </th>
+                  <th>Doctor </th>
                   <th>Visit Date</th>
                   <th>Symptoms</th>
                   <th>Diagnosis</th>
@@ -26,8 +26,8 @@
                 @for (item of visitList(); track $index) {
                 <tr>
                   <td>{{$index + 1}}</td>
-                  <td>{{item.patientId}}</td>
-                  <td>{{item.doctorId}}</td>
+                  <td>{{item.patientName}}</td>
+                  <td>{{item.doctorName}}</td>
                   <td>{{item.visitDate | date:'short'}}</td>
                   <td>{{item.symptoms}}</td>
                   <td>{{item.diagnosis}}</td>

@@ -8,7 +8,9 @@ import { IPatientListModel } from '../models/interfaces/IPatinet.model';
 
 @Service()
 export class PatientService {
+
   http = inject(HttpClient);
+  
 
   createNewPatient(obj: PatientModel): Observable<IPatientListModel> {
     return this.http.post<IPatientListModel>(

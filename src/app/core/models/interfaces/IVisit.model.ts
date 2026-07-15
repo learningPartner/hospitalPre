@@ -6,4 +6,17 @@ export interface IVisitModel {
   visitDate: string;
   symptoms: string;
   diagnosis: string;
+   patientName?: number;
+  doctorName?: number;
+}
+
+
+export interface IVisitListModel {
+  id?: number;
+  visitId?: number;
+  patientName: number;
+  doctorName: number;
+  visitDate: string;
+  symptoms: string;
+  diagnosis: string;
 }

@@ -23,8 +23,8 @@ export const GlobalConstant = {
     ],
     ROLE:{
         DOCTOR:'Doctor',
-        PATIENT:'Patient',
-        RECEIPNEST:'RECEIPNEST'
+        ADMIN:'Admin',
+        RECEIPNEST:'Receptionist'
     },
-    ROLE_LIST: ['Doctor','Patient','RECEIPNEST']
+    ROLE_LIST: ['Doctor','Patient','Receptionist']
 }

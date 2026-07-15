@@ -9,10 +9,11 @@ import { AsyncPipe, DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { VisitService } from '../../core/services/visit-service';
 import { IVisitModel } from '../../core/models/interfaces/IVisit.model';
+import { HideShowBtn } from '../../shared/directives/hide-show-btn';
 
 @Component({
   selector: 'app-visits',
-  imports: [AsyncPipe, DatePipe, ReactiveFormsModule],
+  imports: [AsyncPipe, DatePipe, ReactiveFormsModule, HideShowBtn],
   templateUrl: './visits.html',
   styleUrl: './visits.css',
 })

@@ -6,6 +6,8 @@ import { MedicinesMaster } from './pages/medicines-master/medicines-master';
 import { RegisterPatient } from './pages/patient/register-patient/register-patient';
 import { PatientList } from './pages/patient/patient-list/patient-list';
 import { Visits } from './pages/visits/visits';
+import { roleBasedAccessGuard } from './core/guards/role-based-access-guard';
+import { NoRoleAccess } from './pages/no-role-access/no-role-access';
 
 export const routes: Routes = [
     {
@@ -24,22 +26,31 @@ export const routes: Routes = [
     {
         path:'admin',
         component: Layout,
+        
         children:[
             {
                 path:'users',
-                component: Users
+                component: Users,
+                canActivate:[roleBasedAccessGuard],
             },
             {
                 path:'medicine-Master',
-                component: MedicinesMaster
+                component: MedicinesMaster,
+                canActivate:[roleBasedAccessGuard],
             },
             {
                 path:'patient-list',
-                component: PatientList
+                component: PatientList,
+                canActivate:[roleBasedAccessGuard],
             },
             {
                 path:'visit',
-                component: Visits
+                component: Visits,
+                canActivate:[roleBasedAccessGuard],
+            },
+            {
+                path:'no-access',
+                component: NoRoleAccess
             }
         ]
     }

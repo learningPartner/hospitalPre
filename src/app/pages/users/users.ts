@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../core/services/user-service';
 import { LoginUserModel } from '../../core/models/interfaces/User.Model';
 import { FormConstant } from '../../core/constant/Form.Constant';
+import { HideForRec } from '../../shared/directives/hide-for-rec';
 
 @Component({
   selector: 'app-users',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HideForRec],
   templateUrl: './users.html',
   styleUrl: './users.css',
 })

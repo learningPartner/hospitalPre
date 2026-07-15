@@ -8,9 +8,7 @@
     <nav class="sidebar-menu" aria-label="Main navigation">
       @for (item of menuItemList; track $index) {
       <a [routerLink]="item.route" class="menu-link active" title="{{item.toolTipText}}">
-        <span [class]="'fa ' + item.icon">
-
-        </span>
+        <span [class]="'fa ' + item.icon">  </span>
         <span class="menu-text">{{item.title}}</span>
       </a>
       }
