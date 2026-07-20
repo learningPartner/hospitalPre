@@ -8,6 +8,7 @@ import { PatientList } from './pages/patient/patient-list/patient-list';
 import { Visits } from './pages/visits/visits';
 import { roleBasedAccessGuard } from './core/guards/role-based-access-guard';
 import { NoRoleAccess } from './pages/no-role-access/no-role-access';
+import { OpenPatient } from './pages/open-patient/open-patient';
 
 export const routes: Routes = [
     {
@@ -47,6 +48,10 @@ export const routes: Routes = [
                 path:'visit',
                 component: Visits,
                 canActivate:[roleBasedAccessGuard],
+            },
+             {
+                path:'open-patient/:patientId',
+                component: OpenPatient 
             },
             {
                 path:'no-access',

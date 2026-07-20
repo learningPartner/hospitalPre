@@ -4,6 +4,7 @@ export const GlobalConstant = {
         CREATE_USER:'staff',
         FILTER_USER:'staff?roleName=',
         PATIENT:'patients',
+        GET_PATIENT_BY_ID:'patients/',
         VISIT:'visits'
     },
     REG_EXP: {

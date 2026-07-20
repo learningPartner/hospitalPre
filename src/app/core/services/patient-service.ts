@@ -8,9 +8,7 @@ import { IPatientListModel } from '../models/interfaces/IPatinet.model';
 
 @Service()
 export class PatientService {
-
   http = inject(HttpClient);
-  
 
   createNewPatient(obj: PatientModel): Observable<IPatientListModel> {
     return this.http.post<IPatientListModel>(
@@ -22,6 +20,12 @@ export class PatientService {
   getAllPatient(): Observable<IPatientListModel[]> {
     return this.http.get<IPatientListModel[]>(
       environment.API_URL + GlobalConstant.API_METHODS.PATIENT,
+    );
+  }
+
+  getPatientById(id: number): Observable<IPatientListModel> {
+    return this.http.get<IPatientListModel>(
+      environment.API_URL + GlobalConstant.API_METHODS.GET_PATIENT_BY_ID + id,
     );
   }
 }

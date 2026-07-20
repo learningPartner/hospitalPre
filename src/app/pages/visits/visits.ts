@@ -10,10 +10,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { VisitService } from '../../core/services/visit-service';
 import { IVisitModel } from '../../core/models/interfaces/IVisit.model';
 import { HideShowBtn } from '../../shared/directives/hide-show-btn';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-visits',
-  imports: [AsyncPipe, DatePipe, ReactiveFormsModule, HideShowBtn],
+  imports: [AsyncPipe, DatePipe, ReactiveFormsModule, HideShowBtn, RouterLink],
   templateUrl: './visits.html',
   styleUrl: './visits.css',
 })
@@ -37,6 +38,7 @@ export class Visits implements OnInit {
   patientList$ : Observable<IPatientListModel[]> = new Observable<IPatientListModel[]>();
   doctorList$ : Observable<LoginUserModel[]> = new Observable<LoginUserModel[]>();
 
+  router = inject(Router)
   constructor(private formBuilder: FormBuilder) {
     this.initializeForm();
   }
@@ -45,6 +47,10 @@ export class Visits implements OnInit {
     this.patientList$ = this.patinetSrv.getAllPatient();
     this.doctorList$ =  this.userSrv.filterUsers(GlobalConstant.ROLE.DOCTOR);
     this.getAllVisits();
+  }
+
+  openPatient(id:number) {
+    this.router.navigate(['/admin/open-patient',id])
   }
 
   initializeForm() {

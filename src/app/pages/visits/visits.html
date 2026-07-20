@@ -32,6 +32,7 @@
                   <td>{{item.symptoms}}</td>
                   <td>{{item.diagnosis}}</td>
                   <td>
+                    <button class="btn btn-sm btn-warning" (click)="openPatient(item.patientId)"  >Open</button>
                     <button class="btn btn-sm btn-success" (click)="onEditVisit(item)">Edit</button>
                     <button class="btn btn-sm btn-danger mx-2" (click)="onDeleteVisit(item)">Delete</button>
                   </td>

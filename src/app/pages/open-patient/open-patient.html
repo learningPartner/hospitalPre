@@ -1,0 +1,203 @@
+<div class="container-fluid">
+  <div class="row g-3">
+    <div class="col-12">
+      <div class="card border-primary">
+        <div class="card-header bg-primary text-dark">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Open Patient</h5>
+            <button class="btn btn-dark btn-sm">Back</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-3">
+              <label class="form-label text-muted mb-1">Patient Name</label>
+              <h5 class="mb-0">{{patientData().fullName}}</h5>
+            </div> 
+            <div class="col-md-2">
+              <label class="form-label text-muted mb-1">Gender</label>
+              <p class="mb-0">{{patientData().gender}}</p>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label text-muted mb-1">Phone</label>
+              <p class="mb-0">{{patientData().phone}}</p>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label text-muted mb-1">Address</label>
+              <p class="mb-0">{{patientData().address}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card border-primary h-100">
+        <div class="card-header bg-primary text-dark">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Visit History</h5>
+            <span class="badge bg-dark">3 Visits</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action active">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">14 Jul 2026</h6>
+                <small>Current</small>
+              </div>
+              <p class="mb-1">Fever, cough and body pain</p>
+              <small>Diagnosis: Viral infection</small>
+            </button>
+
+            <button type="button" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">02 Jul 2026</h6>
+                <small>Follow up</small>
+              </div>
+              <p class="mb-1">Throat pain and weakness</p>
+              <small>Diagnosis: Seasonal flu</small>
+            </button>
+
+            <button type="button" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1">18 Jun 2026</h6>
+                <small>Closed</small>
+              </div>
+              <p class="mb-1">Headache and acidity</p>
+              <small>Diagnosis: Migraine with gastritis</small>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="row g-3">
+        <div class="col-12">
+          <div class="card border-primary">
+            <div class="card-header bg-primary text-dark">
+              <h5 class="mb-0">Selected Visit Details</h5>
+            </div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label text-muted mb-1">Visit Date</label>
+                  <p class="mb-0 fw-semibold">14 Jul 2026, 10:30 AM</p>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label text-muted mb-1">Doctor</label>
+                  <p class="mb-0">Dr. Amit Patil</p>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label text-muted mb-1">Symptoms</label>
+                  <p class="mb-0">Fever, cough</p>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label text-muted mb-1">Diagnosis</label>
+                  <p class="mb-0">Viral infection</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card border-primary">
+            <div class="card-header bg-primary text-dark">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Prescriptions For This Visit</h5>
+                <span class="badge bg-dark">2 Medicines</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Sr No</th>
+                      <th>Medicine</th>
+                      <th>Dosage</th>
+                      <th>Frequency</th>
+                      <th>Duration</th>
+                      <th>Instruction</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Paracetamol 500 mg</td>
+                      <td>1 Tablet</td>
+                      <td>Twice a day</td>
+                      <td>5 Days</td>
+                      <td>After food</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Cough Syrup</td>
+                      <td>10 ml</td>
+                      <td>Three times a day</td>
+                      <td>3 Days</td>
+                      <td>After meals</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card border-primary">
+            <div class="card-header bg-primary text-dark">
+              <h5 class="mb-0">Add Prescription For Current Visit</h5>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <label class="form-label">Medicine Name</label>
+                    <input type="text" class="form-control" placeholder="Enter medicine name">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Dosage</label>
+                    <input type="text" class="form-control" placeholder="Example: 1 Tablet">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Frequency</label>
+                    <select class="form-select">
+                      <option selected>Select Frequency</option>
+                      <option>Once a day</option>
+                      <option>Twice a day</option>
+                      <option>Three times a day</option>
+                      <option>As needed</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Duration</label>
+                    <input type="text" class="form-control" placeholder="Example: 5 Days">
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label">Instruction</label>
+                    <input type="text" class="form-control" placeholder="Example: Take after food">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Doctor Notes</label>
+                    <textarea class="form-control" rows="3" placeholder="Add notes for this prescription"></textarea>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-end gap-2">
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                  <button type="button" class="btn btn-warning">Add Prescription</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
