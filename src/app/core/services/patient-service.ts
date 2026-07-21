@@ -28,4 +28,5 @@ export class PatientService {
       environment.API_URL + GlobalConstant.API_METHODS.GET_PATIENT_BY_ID + id,
     );
   }
+  
 }

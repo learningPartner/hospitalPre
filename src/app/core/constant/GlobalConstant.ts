@@ -5,7 +5,10 @@ export const GlobalConstant = {
         FILTER_USER:'staff?roleName=',
         PATIENT:'patients',
         GET_PATIENT_BY_ID:'patients/',
-        VISIT:'visits'
+        VISIT:'visits',
+        VISIT_BY_PATIENT: 'visits/patient/',
+        PRESCRIPTION:'prescription-items' 
+ 
     },
     REG_EXP: {
         EAMIL:'/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
