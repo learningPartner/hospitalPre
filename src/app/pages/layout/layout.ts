@@ -4,6 +4,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { LoginUserModel } from '../../core/models/interfaces/User.Model';
 import { UserService } from '../../core/services/user-service';
 import { MenuConstant } from '../../core/constant/Menu.Constant';
+import { MasterService } from '../../core/services/master-service';
 
 @Component({
   selector: 'app-layout',
@@ -31,6 +32,8 @@ export class Layout {
 
   cityList: string  [] = ["Pune","Panji","Nagput","Mumbai","Solapur","Thane"];
 
+  masterSrv =  inject(MasterService);
+
 
   constructor(){
     this.loggedUserData= this.userSrv.loggedUserData;
@@ -48,6 +51,12 @@ export class Layout {
     
   }
 
+
+  onSearchChnages(event: any) {
+     debugger;
+    const textValue =  event.target.value;
+    this.masterSrv.omSearchChnages$.next(textValue)
+  }
   onLogOff() {
     sessionStorage.removeItem('hospitalUser');
     this.router.navigate(['/login'])

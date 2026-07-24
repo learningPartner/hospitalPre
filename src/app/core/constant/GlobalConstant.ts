@@ -7,7 +7,8 @@ export const GlobalConstant = {
         GET_PATIENT_BY_ID:'patients/',
         VISIT:'visits',
         VISIT_BY_PATIENT: 'visits/patient/',
-        PRESCRIPTION:'prescription-items' 
+        PRESCRIPTION:'prescription-items',
+        MEDICINE_SEARCH:'medicines?search='
  
     },
     REG_EXP: {
