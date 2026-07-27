@@ -32,28 +32,31 @@ export class Layout {
 
   cityList: string  [] = ["Pune","Panji","Nagput","Mumbai","Solapur","Thane"];
 
-  masterSrv =  inject(MasterService);
+  masterSrv =  inject(MasterService); 
 
 
   constructor(){
+    this.userSrv.loginTimeoutInterval.subscribe((res)=>{
+      
+    })
     this.loggedUserData= this.userSrv.loggedUserData;
     
     const allMenuItems =   MenuConstant.menuItems;
     const roleWiseMenu =  allMenuItems.filter(m=>m.roles.includes(this.loggedUserData.roleName))
-    debugger;
+   
     this.menuItemList = roleWiseMenu;
     const data = this.cityList.includes("Pune"); 
     // const loggedData = sessionStorage.getItem("hospitalUser");
     // if(loggedData) {
     //   this.loggedUserData = JSON.parse(loggedData)
     // }
-    debugger;
+   
     
   }
 
 
   onSearchChnages(event: any) {
-     debugger;
+    
     const textValue =  event.target.value;
     this.masterSrv.omSearchChnages$.next(textValue)
   }

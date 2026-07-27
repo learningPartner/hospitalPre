@@ -31,7 +31,7 @@ export class Users implements OnInit {
     this.initializeForm();
     this.mastesrv.omSearchChnages$.subscribe({
       next: (ser: string) => {
-        debugger;
+       
       },
     });
   }
@@ -60,7 +60,7 @@ export class Users implements OnInit {
       roleName: emeidineData.roleName,
       isActive: emeidineData.isActive,
     };
-    debugger;
+   
     this.userForm.setValue(data);
     if(!this.isFormOpen) {
        this.toggleFormVisibility();
@@ -77,7 +77,7 @@ export class Users implements OnInit {
   }
 
   onSearch() {
-    debugger;
+   
     const selectRole = this.searchDropdown.nativeElement.value;
     this.userSrv.filterUsers(selectRole).subscribe({
       next: (res: LoginUserModel[]) => {

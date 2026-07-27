@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Service } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs'; 
+import { interval, Observable, timer } from 'rxjs'; 
 import { GlobalConstant } from '../constant/GlobalConstant';
 import { LoginUserModel } from '../models/interfaces/User.Model';
 import { UserModel } from '../models/classes/User.Model';
@@ -13,10 +13,13 @@ export class UserService {
   
   loggedUserData!: LoginUserModel;
 
+   
+  loginTimeoutInterval =  timer(5 * 60 * 1000)
+
   //behaviopur Subject
 
   constructor(){
-    debugger;
+   
     this.assignLoogedUser();
   }
 

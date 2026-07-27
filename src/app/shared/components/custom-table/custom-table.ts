@@ -20,7 +20,7 @@ export class CustomTable {
 
 
   onEditRecord(data:any) {
-    debugger;
+   
     this.onEdit.emit(data)
   }
 

@@ -33,7 +33,7 @@ export class MedicinesMaster {
   constructor() {
     this.masterSrv.omSearchChnages$.subscribe({
       next:(searchText:string)=>{
-        debugger;
+       
         this.searchMedine(searchText)
       }
     })

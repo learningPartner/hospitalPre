@@ -18,10 +18,10 @@ export class RegisterPatient {
   pateintSrv = inject(PatientService);
 
   onRegister() {
-    debugger;
+   
     this.pateintSrv.createNewPatient(this.newPatientObj).subscribe({
       next:(res: IPatientListModel) =>{
-        debugger;
+       
         alert("Patient Registration Succes");
         this.newPatientObj = new PatientModel();
       },

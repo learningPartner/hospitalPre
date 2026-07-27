@@ -21,17 +21,18 @@ export class Login {
 
   login(form: NgForm) {
     this.formSubmitted = true;
-    debugger;
+   
     if (!form.invalid) {
       this.userSrv.onLogin(this.loginObj).subscribe({
         next: (res: any) => {
-          debugger;
-          sessionStorage.setItem(GlobalConstant.LOGGED_USER_SEESION_KEY, JSON.stringify(res));
+         
+          localStorage.setItem(GlobalConstant.TOKEN_KEY,res.token);
+          sessionStorage.setItem(GlobalConstant.LOGGED_USER_SEESION_KEY, JSON.stringify(res.user));
           this.userSrv.assignLoogedUser();
           this.router.navigateByUrl('/admin/users');
         },
         error: (error: any) => {
-          debugger;
+         
           alert('APi Error ' + error.error);
         },
       });

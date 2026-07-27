@@ -38,7 +38,7 @@ export class OpenPatient implements OnInit {
     this.initializeForm();
     this.activatedRoute.params.subscribe({
       next: (param: any) => {
-        debugger;
+       
         this.currentPatientId = param.patientId;
         this.getPatientById();
         this.getVisitsByPatientId();
@@ -82,7 +82,7 @@ export class OpenPatient implements OnInit {
       next: (res: IVisitList[]) => {
         this.visitList.set(res);
         const notClosedVisit =  res.filter(m=> m.visitStatus !="Closed");
-        debugger;
+       
         if(notClosedVisit.length ==0) {
            this.selectedVisit = res[0];
         } else {

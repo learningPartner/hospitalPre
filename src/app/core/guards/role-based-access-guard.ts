@@ -5,7 +5,7 @@ import { inject } from '@angular/core';
 import { UserService } from '../services/user-service';
 
 export const roleBasedAccessGuard: CanActivateFn = (route, state) => {
-  debugger;
+ 
 
   const userSr =  inject(UserService);
   const router = inject(Router);

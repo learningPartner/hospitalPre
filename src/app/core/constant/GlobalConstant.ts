@@ -20,6 +20,7 @@ export const GlobalConstant = {
         EMAIL:'Email Is inValid'
     },
     LOGGED_USER_SEESION_KEY:'hospitalUser',
+    TOKEN_KEY:'hopsital_token',
     MEDICINE_FORM_LIST: [
         "Tablet",
         "Capsule",
